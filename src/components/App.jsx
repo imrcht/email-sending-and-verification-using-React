@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import emailjs from "emailjs-com";
 import getRandomInt from "./getrandomint";
+import keys from "../secrets";
 
 function App() {
   var newotp = getRandomInt(100000, 1000000);
@@ -46,12 +47,7 @@ function App() {
     };
 
     emailjs
-      .send(
-        "service_j66e4xd",
-        "template_dqxg1mp",
-        recipient,
-        "user_dHC6WxDbNm1iUzFKjLgFc"
-      )
+      .send(keys.service_id, keys.template_id, recipient, keys.user_id)
       .then((res) => {
         console.log(res);
       })
